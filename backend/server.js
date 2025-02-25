@@ -22,6 +22,33 @@ app.delete('/api/wines/:id',async (req,res)=>{
         console.log(err)
     }
 })
+app.get('/api/wines/:id', async (req,res)=>{
+    try{
+        const Wine1 = await Wine.findById(req.params.id)
+        res.json(Wine1)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.put('/api/wines/:id', async (req,res)=>{
+    try{
+        await Wine.findByIdAndUpdate({_id:req.params.id},{
+            type:req.body.type,
+            section:req.body.section,
+            category:req.body.category,
+            region:req.body.region,
+            subregion:req.body.subregion,
+            sequence:req.body.sequence,
+            bin:req.body.bin,
+            description:req.body.description,
+            vintageSize:req.body.vintageSize,
+            price:req.body.price            
+        })
+        res.json('Wine Updated')
+    }catch(err){
+        console.log(err)
+    }
+})
 app.post('/api/wines', async (req,res)=>{
     try{
         await Wine.create({
