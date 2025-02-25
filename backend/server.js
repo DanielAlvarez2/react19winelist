@@ -13,7 +13,15 @@ const PORT = process.env.PORT || 6996;
     }catch(err){
         console.log(err)
     }
-})() 
+})()
+app.delete('/api/wines/:id',async (req,res)=>{
+    try{
+        await Wine.findByIdAndDelete(req.params.id)
+        res.json('Wine Deleted')
+    }catch(err){
+        console.log(err)
+    }
+})
 app.post('/api/wines', async (req,res)=>{
     try{
         await Wine.create({
