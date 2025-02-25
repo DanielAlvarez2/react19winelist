@@ -33,6 +33,10 @@ app.post('/api/wines', async (req,res)=>{
         console.log(err)
     }
 })
+app.get('/api/wines', async (req,res)=>{
+    const allWines = await Wine.find()
+    res.json(allWines)
+})
 app.get('/',(req,res)=>res.json({"Hello":"World"}))
 app.listen(PORT, ()=>{
     console.log(`Express Server Listening on Port: ${PORT}`)
