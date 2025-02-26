@@ -3,15 +3,30 @@ import { useEffect, useState } from 'react'
 
 function App() {
 
+  const [wines, setWines] = useState([])
+
   const getWines = async ()=>{
     await fetch('/api/wines')
       .then(res=>res.json())
-      .then(json=>console.log(json))
+      .then(json=>setWines(json))
+      .catch(err=>console.log(err))
   }
-  getWines()
+
+  useEffect(()=>{
+    getWines()
+  })
   return (
     <>
-    test
+      {wines.map((data)=>{
+        return(
+          <div className='menu-item'>
+            <span>{data.bin}</span>
+            <span>{data.description}</span>
+            <span>{data.vintageSize}</span>
+            <span>{data.price}</span>
+          </div>
+        )
+      })}
     </>
   )
 }

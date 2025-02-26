@@ -1,0 +1,5 @@
+.menu-item{
+  width:8.5in;
+  display:flex;
+  justify-content: space-between;
+}
