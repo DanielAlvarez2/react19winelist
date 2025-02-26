@@ -1,5 +1,28 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 .menu-item{
   width:8.5in;
   display:flex;
   justify-content: space-between;
+}
+.bin,
+.description,
+.vintage-size,
+.price{
+  border:1px solid red;
+}
+.bin{
+  width:4ch;
+}
+.description{
+  width:80ch;
+}
+.vintage-size{
+  width:6ch;
+}
+.price{
+  width:6ch;
 }

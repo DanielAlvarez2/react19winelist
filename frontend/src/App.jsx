@@ -20,10 +20,10 @@ function App() {
       {wines.map((data)=>{
         return(
           <div className='menu-item'>
-            <span>{data.bin}</span>
-            <span>{data.description}</span>
-            <span>{data.vintageSize}</span>
-            <span>{data.price}</span>
+            <span className='bin'>{data.bin}</span>
+            <span className='description'>{data.description}</span>
+            <span className='vintage-size'>{data.vintageSize}</span>
+            <span className='price'>{data.price}</span>
           </div>
         )
       })}
